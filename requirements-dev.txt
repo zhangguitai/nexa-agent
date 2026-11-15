@@ -1,0 +1,9 @@
+# Core project: Node.js >= 20, no npm dependencies.
+# Optional browser acceptance testing:
+playwright>=1.48.0
+
+# Optional artifact generation:
+reportlab>=5.0.0
+Pillow>=10.0.0
+imageio-ffmpeg>=0.6.0
+pypdf>=5.0.0

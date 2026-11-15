@@ -1,0 +1,21 @@
+name: Project Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  syntax-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: JavaScript syntax check
+        run: npm run check
+      - name: Start server and health check
+        run: |
+          node server.mjs &
+          sleep 2
+          curl --fail http://127.0.0.1:4173/api/health

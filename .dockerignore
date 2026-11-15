@@ -1,0 +1,10 @@
+.git
+.env
+node_modules
+tmp
+__pycache__
+*.pyc
+screenshots
+output
+tests
+docs

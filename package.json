@@ -1,0 +1,15 @@
+{
+  "name": "nexa-agent-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEXA Agent Workspace - 具备自主规划、工具调用与多轮对话能力的 AI Agent 应用",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "check": "node --check server.mjs && node --check assets/app.js && node --check assets/icons.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
