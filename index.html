@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="NEXA Agent Workspace - 面向知识工作者的 AI Agent 智能体与自动化工作流平台"
+    />
+    <meta name="theme-color" content="#101917" />
+    <title>NEXA · Agent Workspace</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f1f1b'/%3E%3Cpath d='M17 42V22l15 9 15-9v20L32 33 17 42Z' fill='%235ee0b4'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar" aria-label="主导航">
+        <div class="brand-row">
+          <a class="brand" href="#" data-view="dashboard" aria-label="NEXA 工作台">
+            <span class="brand-mark" aria-hidden="true">
+              <span></span><span></span>
+            </span>
+            <span class="brand-copy">
+              <strong>NEXA</strong>
+              <small>AGENT WORKSPACE</small>
+            </span>
+          </a>
+          <button class="icon-button sidebar-close" id="sidebarClose" aria-label="关闭导航">
+            <span data-icon="x"></span>
+          </button>
+        </div>
+
+        <button class="workspace-switcher" type="button" data-action="workspace-menu">
+          <span class="workspace-logo">N</span>
+          <span class="workspace-copy">
+            <strong>星云科技</strong>
+            <small>企业工作空间</small>
+          </span>
+          <span data-icon="chevrons-up-down"></span>
+        </button>
+
+        <button class="new-task-button" type="button" data-action="new-task">
+          <span data-icon="square-pen"></span>
+          <span>发起新任务</span>
+          <kbd>N</kbd>
+        </button>
+
+        <nav class="side-nav">
+          <p class="nav-label">工作空间</p>
+          <button class="nav-item active" data-view="dashboard">
+            <span data-icon="layout-dashboard"></span><span>工作台</span>
+          </button>
+          <button class="nav-item" data-view="chat">
+            <span data-icon="message-square"></span><span>智能对话</span>
+            <span class="nav-count">3</span>
+          </button>
+          <button class="nav-item" data-view="tasks">
+            <span data-icon="list-checks"></span><span>任务中心</span>
+          </button>
+          <button class="nav-item" data-view="workflow">
+            <span data-icon="workflow"></span><span>工作流</span>
+            <span class="nav-dot"></span>
+          </button>
+
+          <p class="nav-label nav-label-spaced">知识与管理</p>
+          <button class="nav-item" data-view="knowledge">
+            <span data-icon="book-open"></span><span>知识库</span>
+          </button>
+          <button class="nav-item" data-view="tools">
+            <span data-icon="plug"></span><span>工具连接</span>
+          </button>
+          <button class="nav-item" data-view="runs">
+            <span data-icon="activity"></span><span>运行记录</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="usage-block">
+            <div class="usage-heading"><span>本月执行额度</span><strong>68%</strong></div>
+            <div class="usage-bar"><span style="width: 68%"></span></div>
+            <small>已执行 2,048 / 3,000 次</small>
+          </div>
+          <button class="nav-item subtle" type="button" data-action="help">
+            <span data-icon="circle-help"></span><span>帮助与反馈</span>
+          </button>
+          <button class="profile-card" type="button" data-action="profile">
+            <span class="avatar avatar-lin">林</span>
+            <span class="profile-copy"><strong>林默</strong><small>管理员</small></span>
+            <span data-icon="chevrons-up-down"></span>
+          </button>
+        </div>
+      </aside>
+
+      <div class="workspace-area">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="icon-button mobile-menu" id="mobileMenu" aria-label="打开导航">
+              <span data-icon="menu"></span>
+            </button>
+            <div class="breadcrumb">
+              <span class="breadcrumb-root">星云科技</span>
+              <span data-icon="chevron-right"></span>
+              <strong id="pageBreadcrumb">工作台</strong>
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <span class="system-status"><i></i> 所有系统在线</span>
+            <button class="search-trigger" id="commandTrigger" type="button">
+              <span data-icon="search"></span>
+              <span>搜索或提问</span>
+              <kbd>Ctrl K</kbd>
+            </button>
+            <button class="icon-button notification-trigger" id="notificationTrigger" aria-label="通知">
+              <span data-icon="bell"></span><i class="notification-dot"></i>
+            </button>
+            <span class="topbar-divider"></span>
+            <button class="avatar avatar-lin top-avatar" type="button" data-action="profile">林</button>
+          </div>
+        </header>
+
+        <main class="main-content" id="appMain" tabindex="-1"></main>
+      </div>
+    </div>
+
+    <div class="mobile-scrim" id="mobileScrim"></div>
+
+    <div class="popover notification-popover" id="notificationPopover" hidden>
+      <div class="popover-head">
+        <div><strong>通知</strong><span>3 条未读</span></div>
+        <button class="text-button" type="button" data-action="mark-read">全部已读</button>
+      </div>
+      <div class="notification-list">
+        <button class="notification-item unread" type="button">
+          <span class="notice-icon mint" data-icon="circle-check"></span>
+          <span><strong>竞品雷达周报已生成</strong><small>2 分钟前 · 可直接发送至飞书</small></span>
+        </button>
+        <button class="notification-item unread" type="button">
+          <span class="notice-icon amber" data-icon="triangle-alert"></span>
+          <span><strong>「客户反馈归因」工作流需确认</strong><small>18 分钟前 · 等待人工审核</small></span>
+        </button>
+        <button class="notification-item unread" type="button">
+          <span class="notice-icon blue" data-icon="users"></span>
+          <span><strong>陈曦邀请你协作 Agent</strong><small>1 小时前 · 增长策略助手</small></span>
+        </button>
+      </div>
+      <button class="popover-footer" type="button" data-view="runs">
+        查看全部通知 <span data-icon="arrow-right"></span>
+      </button>
+    </div>
+
+    <div class="command-overlay" id="commandOverlay" hidden>
+      <div class="command-palette" role="dialog" aria-modal="true" aria-label="全局搜索">
+        <div class="palette-search">
+          <span data-icon="search"></span>
+          <input id="commandInput" autocomplete="off" placeholder="搜索页面、Agent 或直接输入任务..." />
+          <kbd>ESC</kbd>
+        </div>
+        <div class="palette-results" id="commandResults"></div>
+        <div class="palette-footer">
+          <span><kbd>↑</kbd><kbd>↓</kbd> 选择</span>
+          <span><kbd>Enter</kbd> 打开</span>
+          <span>NEXA Command</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+
+    <script src="./assets/icons.js"></script>
+    <script src="./assets/app.js"></script>
+  </body>
+</html>
