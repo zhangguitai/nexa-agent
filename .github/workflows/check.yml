@@ -3,12 +3,13 @@ name: Project Check
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  syntax-check:
+  quality-check:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -16,8 +17,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: JavaScript syntax check
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Code quality and JavaScript syntax checks
         run: npm run check
+      - name: Python acceptance script syntax check
+        run: python -m py_compile tests/visual_check.py
       - name: Start server and health check
         run: |
           node server.mjs &

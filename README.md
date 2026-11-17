@@ -1,5 +1,7 @@
 # NEXA Agent Workspace
 
+[![Project Check](https://github.com/zhangguitai/nexa-agent/actions/workflows/check.yml/badge.svg)](https://github.com/zhangguitai/nexa-agent/actions/workflows/check.yml)
+
 > 面向传智杯 AI Web 网页开发挑战赛的 AI Agent 智能体应用与自动化工作流平台
 
 ## 团队信息
@@ -48,6 +50,8 @@ NEXA Agent Workspace 是一个可直接运行的 AI Agent Web 应用。用户只
 
 - Node.js 20 或更高版本。
 - npm 随 Node.js 安装，不要求执行 `npm install`。
+- Python 3.10 或更高版本，可选，仅用于浏览器验收。
+- Chrome、Edge 或 Playwright Chromium，可选，仅用于浏览器验收。
 - Windows、Linux 或 macOS。
 - 真实模型模式需要访问所配置的模型接口；本地演示模式无需外网。
 
@@ -137,6 +141,7 @@ flowchart LR
 | `npm run lint` | 检查换行、缩进、行尾空格、调试语句和文件末尾换行 |
 | `npm run check` | 运行格式检查和核心 JavaScript 语法检查 |
 | `npm test` | `npm run check` 的测试入口 |
+| `python -m py_compile tests/visual_check.py` | 检查浏览器验收脚本语法 |
 | `python tests/visual_check.py` | 运行 Playwright 桌面端与移动端视觉、交互验收 |
 
 自动化验收依赖：
@@ -148,6 +153,8 @@ python tests/visual_check.py
 ```
 
 如果本机已安装 Edge，可在 `.env` 中设置 `BROWSER_PATH=C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe`。
+
+GitHub Actions 会自动执行代码规范、JavaScript 语法、Python 验收脚本语法和服务健康检查。
 
 ## 目录结构
 

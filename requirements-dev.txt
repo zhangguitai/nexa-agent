@@ -1,3 +1,3 @@
 # Core project: Node.js >= 20, no npm dependencies.
-# Optional browser acceptance testing:
+# Optional browser acceptance testing: Python >= 3.10.
 playwright>=1.48.0
