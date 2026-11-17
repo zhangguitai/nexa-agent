@@ -30,8 +30,6 @@ NEXA Agent Workspace 是一个可直接运行的 AI Agent Web 应用。用户只
 | 自动化工作流 | 提供可视化节点画布、运行动画、节点配置、执行日志和运行回放 |
 | 可观测与人工审核 | 展示计划、工具轨迹、来源、状态、耗时和待审核任务 |
 
-![NEXA Agent 工作台](screenshots/01-dashboard.png)
-
 ## 核心功能
 
 - **Agent 工作台**：统一查看 Agent 团队、实时任务、自动化效率与执行动态。
@@ -97,8 +95,8 @@ PORT=4173
 | `LLM_API_KEY` | 真实模型模式必填 | 空 | 模型服务密钥，只存在服务端 |
 | `PORT` | 否 | `4173` | HTTP 服务端口 |
 
-重启服务后，右上角状态会显示模型服务在线。完整说明见
-[环境配置与依赖清单](docs/06-环境配置与依赖清单.md)。
+重启服务后，右上角状态会显示模型服务在线。环境变量模板见
+[.env.example](.env.example)。
 
 ## 技术架构
 
@@ -161,14 +159,10 @@ python tests/visual_check.py
 │  ├─ app.js                   # 状态、页面渲染与交互逻辑
 │  ├─ icons.js                 # Lucide 风格本地图标系统
 │  └─ styles.css               # 完整视觉与响应式样式
-├─ docs/                       # 项目、技术、环境、部署与提交说明
-├─ screenshots/                # 浏览器验收截图
 ├─ tests/
 │  └─ visual_check.py          # Playwright 视觉与交互冒烟测试
-├─ tools/                      # PDF、视频、截图和质量检查脚本
-├─ output/
-│  ├─ pdf/                     # 技术文档 PDF
-│  └─ video/                   # 1080p 演示视频、字幕与配音稿
+├─ tools/
+│  └─ check_code_style.mjs     # 无第三方依赖的代码规范检查
 ├─ .github/workflows/check.yml # GitHub Actions 自动检查
 ├─ .env.example                # 环境变量模板
 ├─ Dockerfile
@@ -196,8 +190,8 @@ docker run -d \
   nexa-agent-workspace
 ```
 
-Render、Railway 和云服务器部署步骤见
-[在线部署指南](docs/08-在线部署指南.md)。
+容器启动后访问 `http://localhost:4173`，健康检查地址为
+`http://localhost:4173/api/health`。
 
 ## 工具调用与安全
 

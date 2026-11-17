@@ -17,8 +17,7 @@
 | `assets/icons.js` | 本地 SVG 图标定义 |
 | `assets/styles.css` | 页面布局、组件视觉和响应式规则 |
 | `tests/visual_check.py` | 浏览器视觉与交互验收 |
-| `tools/` | PDF、视频、截图和提交包辅助脚本 |
-| `docs/` | 项目、技术、部署和提交说明 |
+| `tools/check_code_style.mjs` | 无第三方依赖的代码规范检查 |
 
 ## 编码约定
 

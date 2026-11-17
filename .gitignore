@@ -8,3 +8,5 @@ tmp/
 *.tmp
 ~$*
 NEXA-Agent-Workspace-传智杯提交包.zip
+output/
+screenshots/
