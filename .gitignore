@@ -5,3 +5,6 @@ __pycache__/
 .DS_Store
 tmp/
 *.log
+*.tmp
+~$*
+NEXA-Agent-Workspace-传智杯提交包.zip

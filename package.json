@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "check": "node --check server.mjs && node --check assets/app.js && node --check assets/icons.js"
+    "lint": "node tools/check_code_style.mjs",
+    "test": "npm run check",
+    "check": "npm run lint && node --check server.mjs && node --check assets/app.js && node --check assets/icons.js && node --check tools/check_code_style.mjs"
   },
   "engines": {
     "node": ">=20"
