@@ -8,7 +8,7 @@
 
 | 项目 | 内容 |
 | --- | --- |
-| 团队名称 | NEXA Team |
+| 团队名称 | 上分只摆烂|
 | 参赛院校 | 枣庄学院 |
 | 团队成员 | 张贵泰、马勇、从荣达 |
 | 项目仓库 | <https://github.com/zhangguitai/nexa-agent> |
